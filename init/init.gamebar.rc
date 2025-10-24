@@ -1,15 +1,7 @@
 # GameBar init script
 # NOTE: Customize these paths for your device's hardware
 
-on boot
-    # FPS measurement path (adjust paths)
-    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
-    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
-
-    # Battery temperature path (adjust paths)
-    chown system system /sys/class/power_supply/battery/temp
-    chmod 0660 /sys/class/power_supply/battery/temp
-    
+on property:vendor.post_boot.parsed=1
     # CPU temperature path (adjust thermal zone number)
     chown system system /sys/class/thermal/thermal_zone48/temp
     chmod 0660 /sys/class/thermal/thermal_zone48/temp
